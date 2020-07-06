@@ -17,3 +17,5 @@ echo
 IFS='\'
 echo $var        # '(] {}$"     \ converted to space. Why?
 echo "$var"      # '(]\{}$"
+
+Test change
