@@ -3,3 +3,17 @@ Shell Parameter Expansion:
 $ indicates parameter expansion, command substitution, or arithmetic expansion. Usually enclosed in braces to protect the variable from character immediately following it which could be interpreted as part of the name.
 
 If the first character of the parameter is !, this intoduces indirection (known as indirect expansion).
+
+Double Quote Functionality:
+
+Double quotes indicate that the variable should be used literally, and the IFS not removed. This is why we will often do something like "${example}" when we want to ensure the ver is expanded and interpreted as intended.
+
+var="'(]\\{}\$\""
+echo $var        # '(]\{}$"
+echo "$var"      # '(]\{}$"     Doesn't make a difference.
+
+echo
+
+IFS='\'
+echo $var        # '(] {}$"     \ converted to space. Why?
+echo "$var"      # '(]\{}$"
