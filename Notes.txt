@@ -18,4 +18,13 @@ IFS='\'
 echo $var        # '(] {}$"     \ converted to space. Why?
 echo "$var"      # '(]\{}$"
 
-Test change
+Nesting quotes is permitted:
+
+echo "$(echo '"')"           # "
+
+var1="Two bits"
+echo "\$var1 = "$var1""      # $var1 = Two bits
+
+Single Quote Functionality:
+
+Consider single quotes as "full quotes" as every special character will be interpreted literally (this is counter intuitive!). 
